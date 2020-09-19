@@ -22,5 +22,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: konoplev/aws-dynamic-dns
+          repository: konoplev/aws-dynamic-dns/aws-dynamic-dns
           tag_with_ref: true
