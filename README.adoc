@@ -1,10 +1,10 @@
 == Purpose
 
-I use Rapberry PI to run my pet projects. 
-Sometimes I need them avaliable on the Internet, but I don't want to pay for a dedicated IP address.
-I created a docker image allowing to dinamically create (or update) an A record in a Route 53 Hosted zone. 
+I use Raspberry PI to run my pet projects. 
+Sometimes I need them available on the Internet, but I don't want to pay for a dedicated IP address.
+I created a docker image allowing to dynamically create (or update) an A record in a Route 53 Hosted zone. 
 Please see this https://medium.com/@avishayil/dynamic-dns-using-aws-route-53-60a2331a58a4[article] for details.
-The script updating recrods is copied from the article. 
+The script updating records is copied from the article. 
 
 == How to use 
 
@@ -19,11 +19,14 @@ RECORDSET=<A name to create, notes.konoplev.me for example>
 
 https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-creds[This AWS guide] explains how to get AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
 
-To find ZONEID, just open corresponding zone on https://console.aws.amazon.com/route53/v2/hostedzones and click "Hosted zone details".
+To find ZONEID, just open the corresponding zone on https://console.aws.amazon.com/route53/v2/hostedzones and click "Hosted zone details".
 
-And run:
+And, as soon as `env.list` is ready, run:
 
 [source, bash]
 ------------------
-docker run --env-file ./env.list --rm <TODO. add image name as soon as it's published>
+docker run --env-file ./env.list --rm konoplev/aws-dynamic-dns
 ------------------
+
+After it's done, you should have the A record.
+
